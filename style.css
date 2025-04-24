@@ -1,25 +1,26 @@
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
-  background: linear-gradient(to right, #4CAF50, #2196F3), 
-              url('weather-background.jpg') no-repeat center center fixed;
-  background-size: cover;
-  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh; 
+  background-size: cover; 
+  background-position: center center;
+  background-repeat: no-repeat; 
+  transition: background 0.5s ease;
 }
 
-
 .container {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8); 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   max-width: 400px;
-  width: 90%;
+  width: 90%; 
   border-radius: 10px;
   padding: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -31,7 +32,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
 }
 
 input {
@@ -43,12 +44,12 @@ input {
 }
 
 button {
-  border-radius: 10px; 
+  border-radius: 10px;
   transition: all 0.3s ease-in-out;
 }
 
 button:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
   background: #c7fff6;
 }
 
@@ -79,12 +80,128 @@ button img {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .warning {
   color: red;
   font-size: 14px;
   margin-top: 10px;
+}
+
+.logo {
+  width: 300px;
+  max-width: 90%;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+.forecast-container {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  margin-top: 15px;
+}
+
+.forecast-day {
+  background: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.dark-theme .forecast-day {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+/* Weather Backgrounds */
+
+body.sunny {
+  background-color: #ffeb3b; 
+  background-image: url('sunny.webp');
+  background-size: cover;
+}
+
+body.cloudy {
+  background-color: #b0bec5; 
+  background-image: url('cloudy.jpg');
+  background-size: cover;
+}
+
+body.rainy {
+  background-color: #80deea; 
+  background-image: url('rainy.avif');
+  background-size: cover;
+}
+
+body.snowy {
+  background-color: #e1f5fe;
+  background-image: url('snowy.jpg');
+  background-size: cover;
+}
+
+
+body.stormy {
+  background-color: #424242;
+  background-image: url('stormy.avif');
+  background-size: cover;
+}
+
+
+body.foggy {
+  background-color: #bdbdbd; 
+  background-image: url('foggy.jpg');
+  background-size: cover;
+}
+
+body.windy {
+  background-color: #00bcd4; 
+  background-image: url('windy.jpeg');
+  background-size: cover;
+}
+
+body.hazy {
+  background-color: #ffc107;
+  background-image: url('hazy.jpg');
+  background-size: cover;
+}
+
+
+/* For mobile devices with a screen width of up to 600px */
+@media (max-width: 600px) {
+  body {
+    background-size: cover; /* Ensure the background still covers the entire screen */
+    background-position: center center; /* Keep the background image centered */
+  }
+
+  .container {
+    width: 90%; /* Adjust container width to 90% */
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+
+  input {
+    width: 100%; /* Make the input field take up the full width of the container */
+  }
+
+  button {
+    width: 30%; /* Make the button smaller on mobile */
+  }
+}
+
+/* For tablets and larger devices with a screen width of up to 1024px */
+@media (max-width: 1024px) {
+  .container {
+    width: 80%; /* Adjust container width for medium devices */
+  }
+
+  input {
+    width: 70%; /* Keep the input field at 70% of the container width */
+  }
 }
